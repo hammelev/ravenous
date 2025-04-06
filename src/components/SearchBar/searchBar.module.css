@@ -1,0 +1,29 @@
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    background-color: blueviolet;
+}
+
+.sortInput {
+    background-color: aqua;
+
+}
+
+.searchInput {
+    background-color: orangered;
+}
+
+input, label, select {
+    margin-right: 10px;
+}
+
+input:last-child {
+    margin-right: 0;
+}
+label:last-child {
+    margin-right: 0;
+}
+select:last-child {
+    margin-right: 0;
+}

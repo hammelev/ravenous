@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './searchBar.module.css';
 
 export default function SortRestaurantBy(){
 
     return (
-        <form>
+        <form className={styles.sortInput}>
             <label htmlFor='sortRestaurantByOptions'>Sort by:</label>
             <select id='sortRestaurantBy'>
                 <option>Option A</option>

@@ -1,9 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-
 // Components imported
-import BusinessList from './components/BusinessList';
-import SearchBar from './components/SearchBar';
+import BusinessList from '../BusinessList/BusinessList';
+import SearchBar from '../SearchBar/SearchBar';
 
 function App() {
   return (
