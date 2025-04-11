@@ -1,36 +1,119 @@
-const businessFactory = (image, name, city, state, zipcode, category, rating, reviewCount) => {
+const categories = ['Italian', 'Chinese', 'French', 'Vietnamese'];
+
+function getRandomElement(array){
+    return array[Math.floor(Math.random()*array.length)]
+}
+
+
+const businessFactory = (name, city, state, zipcode) => {
     return {
-        image,
+        image: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
         name,
         city,
         state,
         zipcode,
-        category,
-        rating,
-        reviewCount
+        category: getRandomElement(categories),
+        rating: Math.random()*5,
+        reviewCount: Math.random()*1000
     };
 }
 
 const businessMock = [
     businessFactory(
-        'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-        'Tony\'s pizza',
-        'Almont',
-        'Michigan',
-        '48003',
-        'Italian',
-        3.5,
-        7584
+        'Peter Luger Steak House',
+        'Brooklyn',
+        'NY',
+        '11249',
     ),
     businessFactory(
-        'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
-        'Domino',
-        'Almont',
-        'Michigan',
-        '48003',
-        'Italian',
-        3.3,
-        5874
+        'Katz\'s Delicatessen',
+        'New York',
+        'NY',
+        '10002',
+    ),
+    businessFactory(
+        'Joe\'s Pizza',
+        'New York',
+        'NY',
+        '10014',
+    ),
+    businessFactory(
+        'The Halal Guys',
+        'New York',
+        'NY',
+        '10019',
+    ),
+    businessFactory(
+        'Di Fara Pizza',
+        'Brooklyn',
+        'NY',
+        '11230',
+    ),
+    businessFactory(
+        'Shake Shack',
+        'New York',
+        'NY',
+        '10010'
+    ),
+    businessFactory(
+        'Lombardi\'s',
+        'New York',
+        'NY',
+        '10012'
+    ),
+    businessFactory(
+        'Grimaldi\'s Pizzeria',
+        'Brooklyn',
+        'NY',
+        '11201'
+    ),
+    businessFactory(
+        'John\'s of Bleecker Street',
+        'New York',
+        'NY',
+        '10014'
+    ),
+    businessFactory(
+        'Totonno\'s Pizzeria Napolitano',
+        'Brooklyn',
+        'NY',
+        '11224'
+    ),
+    businessFactory(
+        'Juliana\'s Pizza',
+        'Brooklyn',
+        'NY',
+        '11201'
+    ),
+    businessFactory(
+        'Artichoke Basille\'s Pizza',
+        'New York',
+        'NY',
+        '10003'
+    ),
+    businessFactory(
+        'Prince Street Pizza',
+        'New York',
+        'NY',
+        '10012'
+    ),
+    businessFactory(
+        'Rubirosa',
+        'New York',
+        'NY',
+        '10012'
+    ),
+    businessFactory(
+        'Lucali',
+        'Brooklyn',
+        'NY',
+        '11231'
+    ),
+    businessFactory(
+        'Paulie Gee\'s',
+        'Brooklyn',
+        'NY',
+        '11222'
     )
 ];
 
