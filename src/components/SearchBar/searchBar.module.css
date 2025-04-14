@@ -11,7 +11,23 @@
 
 .sortInput {
     background-color: aqua;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: gold;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
+li {
+    background-color: white;
+    border: 2px solid black;
+    list-style: none;
+}
+
+li.active {
+    background-color: darkgreen;
 }
 
 .searchInput {

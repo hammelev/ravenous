@@ -1,14 +1,23 @@
 import React from 'react';
 import styles from './searchBar.module.css';
 
-export default function SortRestaurantBy({sortByOptions}){
+export default function SortRestaurantBy({sortByOptions, sortBy, onSetSortBy}){
+
+    const handleSortByChange = (sortByOptionValue) => {
+        onSetSortBy(sortByOptionValue);
+    }
+
+    const getSortByClass = (sortByOption) => {
+        return sortBy === sortByOption ? styles.active : '';
+    }
 
     return (
-        <form className={styles.sortInput}>
-            <label htmlFor='sortRestaurantByOptions'>Sort by:</label>
-            <select id='sortRestaurantBy'>
-                {Object.keys(sortByOptions).map(key => <option>{key}</option>)}
-            </select>
-        </form>
+        <ul className={styles.sortInput}>
+            {Object.keys(sortByOptions).map(key => {
+                let sortByOptionValue = sortByOptions[key];
+                return <li key={key} className={getSortByClass(sortByOptionValue)} onClick={() => handleSortByChange(sortByOptionValue)}>{key}</li>
+            })}
+        </ul>
+                
     );
 }
