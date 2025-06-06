@@ -1,16 +1,17 @@
 .searchBar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(255, 255, 255);
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: blueviolet;
     position: fixed;
     padding: 10px 25px;
-    height: 45px;
+    height: 85px;
+    align-items: center;
 }
 
 .sortInput {
-    background-color: aqua;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -20,22 +21,23 @@
     margin-bottom: auto;
 }
 
-li {
-    background-color: white;
+button {
     border: 2px solid black;
     list-style: none;
+    font: 1em sans-serif;
 }
 
-li.active {
+button.active {
     background-color: darkgreen;
-}
-
-.searchInput {
-    background-color: orangered;
 }
 
 input, label, select {
     margin-right: 10px;
+}
+
+input {
+    font-size: 1em;
+    border-radius: 5px;
 }
 
 input:last-child {
@@ -47,3 +49,4 @@ label:last-child {
 select:last-child {
     margin-right: 0;
 }
+

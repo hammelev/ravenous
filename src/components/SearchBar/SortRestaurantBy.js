@@ -1,7 +1,9 @@
-import React from 'react';
 import styles from './searchBar.module.css';
 
-export default function SortRestaurantBy({sortByOptions, sortBy, onSetSortBy}){
+// Configuration
+import { SORT_SEARCH_BY_OPTION } from '../../config/sortSearchByOptions';
+
+export default function SortRestaurantBy({sortBy, onSetSortBy}){
 
     const handleSortByChange = (sortByOptionValue) => {
         onSetSortBy(sortByOptionValue);
@@ -12,12 +14,11 @@ export default function SortRestaurantBy({sortByOptions, sortBy, onSetSortBy}){
     }
 
     return (
-        <ul className={styles.sortInput}>
-            {Object.keys(sortByOptions).map(key => {
-                let sortByOptionValue = sortByOptions[key];
-                return <li key={key} className={getSortByClass(sortByOptionValue)} onClick={() => handleSortByChange(sortByOptionValue)}>{key}</li>
+        <div className={styles.sortInput}>
+            {SORT_SEARCH_BY_OPTION.map(sortByOption => {
+                return <button key={sortByOption.value} className={getSortByClass(sortByOption.value)} onClick={() => handleSortByChange(sortByOption.value)}>{sortByOption.label}</button>
             })}
-        </ul>
+        </div>
                 
     );
 }

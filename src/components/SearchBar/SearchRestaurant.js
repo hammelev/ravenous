@@ -1,7 +1,6 @@
-import React from 'react';
 import styles from './searchBar.module.css';
 
-export default function SearchReasturant({searchOptions, onSetSearchOptions, onHandleSearch}){
+export default function SearchResturant({searchOptions, onSetSearchOptions, onHandleSearch}){
 
     /**
      * @param {string} searchOptionToUpdate denotes which of the search options the event handler should update.
@@ -13,19 +12,16 @@ export default function SearchReasturant({searchOptions, onSetSearchOptions, onH
             [searchOptionToUpdate]: e.target.value,
         }));
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         onHandleSearch();
     }
     
-
     return (
         <form className={styles.searchInput}>
-            <label htmlFor='searchRestaurantTerm'>Search for:</label>
-            <input type='text' id='searchRestaurantTerm' value={searchOptions.searchTerm} onChange={handleChange('searchTerm')}/>
-            <label htmlFor='searchRestaurantLocation'>Location:</label>
-            <input type='text' id='searchRestaurantLocation' value={searchOptions.location} onChange={handleChange('location')}/>
+            <input type='text' id='searchRestaurantTerm' placeholder='Search Businesses' value={searchOptions.searchTerm} onChange={handleChange('searchTerm')}/>
+            <input type='text' id='searchRestaurantLocation' placeholder='Where?' value={searchOptions.location} onChange={handleChange('location')}/>
             <input type='submit' value='Search' onClick={handleSubmit}/>
         </form>
     )

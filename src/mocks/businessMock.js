@@ -7,14 +7,14 @@ function getRandomElement(array){
 
 const businessFactory = (name, city, state, zipcode) => {
     return {
-        image: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
+        image_url: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
         name,
         city,
         state,
         zipcode,
         category: getRandomElement(categories),
-        rating: Math.random()*5,
-        reviewCount: Math.random()*1000
+        rating: (Math.random()*5).toFixed(2),
+        review_count: (Math.random()*1000).toFixed(0)
     };
 }
 
