@@ -1,5 +1,3 @@
-# Portfolio project: Displaying restaurant recommendations using Yelp
-
 ## React-based Yelp Recommendation App
 
 This project was created to gain experience with React as part of the Codecademy course [Create a Front-End App with React](https://www.codecademy.com/learn/paths/build-web-apps-with-react).
