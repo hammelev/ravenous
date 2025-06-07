@@ -1,3 +1,4 @@
 export const RUNTIME_CONFIG = {
-    'useMockData': true
+    'useMockData': true,
+    'yelpApiKey': 'YOUR_YELP_API_KEY',
 };

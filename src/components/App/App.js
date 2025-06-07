@@ -7,27 +7,21 @@ import SearchBar from '../SearchBar/SearchBar';
 // Service to import fetch data from the Yelp API
 import {getBusinesses} from '../../utils/yelpDataService';
 
-// Mock data
-import businessMock from '../../mocks/businessMock';
-
 // Configuration
 import { SORT_SEARCH_BY_OPTION } from '../../config/sortSearchByOptions';
-import { RUNTIME_CONFIG } from '../../config/runtimeConfig';
 
 function App() {
   const [businesses, setBusinesses] = useState({});
   const [selectedSortOption, setSelectedSortOption] = useState('best_match');
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const searchRestaurants = async (searchOptions) => {
-    if( RUNTIME_CONFIG.useMockData){
-      setBusinesses({[selectedSortOption]: businessMock});
-      return;
-    }
     try {
       // 1. Clear data to show loading indicator
       setBusinesses({});
-      setError(false);
+      if (error) setError(false);
+      setLoading(true);
 
       // 2. Fetch primary data for the selected sort option
       const businessesToDisplay = await getBusinesses(searchOptions.searchTerm, searchOptions.location, selectedSortOption);
@@ -64,14 +58,17 @@ function App() {
       });
     } catch (error) {
       console.error("Error in searchRestaurants (primary fetch or initiating background fetches):", error);
+      setError(true);
       setBusinesses({}); // Clear businesses on a major error
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
     <div className="App">
       <SearchBar onSearchRestaurants={searchRestaurants} onUpdateSortOption={setSelectedSortOption} selectedSortOption={selectedSortOption}/>
-      <BusinessList businesses={businesses} selectedSortOption={selectedSortOption} errorLoadingData={error}/>
+      <BusinessList businesses={businesses} selectedSortOption={selectedSortOption} errorLoadingData={error} isLoading={loading}/>
     </div>
   );
 }

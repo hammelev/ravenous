@@ -1,12 +1,18 @@
 const categories = ['Italian', 'Chinese', 'French', 'Vietnamese'];
 
-function getRandomElement(array){
+let startIdWith = 0;
+
+const generateId = () => {
+    return startIdWith++;
+}
+
+const getRandomElement = (array) => {
     return array[Math.floor(Math.random()*array.length)]
 }
 
-
 const businessFactory = (name, city, state, zipcode) => {
     return {
+        id: generateId(),
         image_url: 'https://content.codecademy.com/programs/react/ravenous/pizza.jpg',
         name,
         city,

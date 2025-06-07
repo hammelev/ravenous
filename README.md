@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Portfolio project: Displaying restaurant recommendations using Yelp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## React-based Yelp Recommendation App
 
-## Available Scripts
+This project was created to gain experience with React as part of the Codecademy course [Create a Front-End App with React](https://www.codecademy.com/learn/paths/build-web-apps-with-react).
 
-In the project directory, you can run:
+Ravenous allows users to search for restaurants by location and food type, with results sortable by "Best Match," "Rating," or "Most Reviewed."
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Additional features implemented for the project beyond the Codecademy course specification:
+* Prefetch data for non-selected sort optiions when searching to avoid having to send additional requests when the user changes sorting options.
+* Set up mockdata and implemented sorting for mockdata.
+* Seperate config file to seperate configuration from the code.
+* Added loading indicator and error message.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
+*   **Frontend:** React (Hooks, Functional Components), HTML5, CSS3 (CSS Modules)
+*   **JavaScript:** ES6+
+*   **API Integration:** Yelp Fusion API (via a proxy for local development)
+*   **Development Tools:** VS Code with Gemini Code Assist, Git, npm
 
-### `npm test`
+## Key Learnings & Skills Demonstrated
+*   **React Development:** Building a single-page application with functional components, state management using Hooks (`useState`, `useEffect`), and prop drilling.
+*   **API Consumption:** Asynchronously fetching and displaying data from a third-party API, including handling loading and error states.
+*   **Component-Based Architecture:** Designing reusable and modular UI components following stateless/stateful patterns.
+*   **Modern JavaScript:** Utilizing ES6+ features for cleaner and more efficient code.
+*   **AI:** Leveraging AI for code assistance.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo version of the project
 
-### `npm run build`
+A demo version of the project can be found here: [Create a Front-End App with React](https://hammelev.github.io/ravenous/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the demo version mock data is used instead of data from YELP.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Note on using mock data:** For demonstration purposes, this project uses mock data. As a pure frontend application, direct fetching from the Yelp API is prevented by **CORS policies**, and there's no secure way to store a secret API key.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the project locally with live Yelp data, a **Node.js proxy** is utilized to bypass CORS, and you'll need to **insert your own Yelp API key** into the config file.
 
-### `npm run eject`
+## Running the application
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To run the application locally:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  **Ensure Node.js is installed:** This includes npm (Node Package Manager).
+2.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/hammelev/ravenous.git
+    cd ravenous
+    ```
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4.  **Configure Yelp API Key (for live data):**
+    *   Obtain a Yelp API Key from the [Yelp Fusion API documentation](https://docs.developer.yelp.com/docs/fusion-intro).
+    *   Open the file `src/config/runtimeConfig.js`.
+    *   Update the `yelpApiKey` value with your actual Yelp API key:
+        ```javascript
+        export const RUNTIME_CONFIG = {
+            'useMockData': false, // Set to false to use live API
+            'yelpApiKey': 'YOUR_YELP_API_KEY_HERE',
+        };
+        ```
+    *   Ensure `useMockData` is set to `false` in the same file to use the live API.
+5.  **Start the development server:**
+    ```bash
+    npm start
+    ```
+    This will open the application in your default web browser at `http://localhost:3000/ravenous`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application uses a proxy (defined in `package.json`) to handle Yelp API requests during local development to avoid CORS issues.
