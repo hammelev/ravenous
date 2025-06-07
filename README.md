@@ -26,7 +26,7 @@ Additional features implemented for the project beyond the Codecademy course spe
 
 ## Demo version of the project
 
-A demo version of the project can be found here: [Create a Front-End App with React](https://hammelev.github.io/ravenous/)
+A demo version of the project can be found here: [Ravenous by Hammelev](https://hammelev.github.io/ravenous/)
 
 In the demo version mock data is used instead of data from YELP.
 
