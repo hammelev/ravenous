@@ -19,7 +19,7 @@ export default function SearchResturant({searchOptions, onSetSearchOptions, onHa
     }
     
     return (
-        <form className={styles.searchInput} on onSubmit={handleSubmit}>
+        <form className={styles.searchInput} onSubmit={handleSubmit}>
             <input type='text' id='searchRestaurantTerm' placeholder='What to eat?' value={searchOptions.searchTerm} onChange={handleChange('searchTerm')} required/>
             <input type='text' id='searchRestaurantLocation' placeholder='Where?' value={searchOptions.location} onChange={handleChange('location')} required/>
             <input type='submit' value='Search'/>
